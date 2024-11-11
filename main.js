@@ -40,3 +40,18 @@ footerToggleBtnEl.addEventListener('click', function () {
 // 올 해 연도 자동계산
 const thisYear = document.querySelector('.this-year');
 thisYear.textContent = new Date().getFullYear();
+
+const cursorRounded = document.querySelector('.rounded');
+const cursorPointed = document.querySelector('.pointed');
+
+
+
+// 마우스 커서 커스텀
+const cursor = document.querySelector('.cursor')
+
+const updateCursor = (e) => {
+  cursor.style.top = e.pageY + 'px';
+  cursor.style.left = e.pageX + 'px';
+}
+
+window.addEventListener('mousemove', updateCursor);

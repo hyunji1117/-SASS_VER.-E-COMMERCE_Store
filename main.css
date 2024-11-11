@@ -2,7 +2,6 @@
 html, body {
   width: 100%;
   height: 2300px;
-  overflow-x: hidden;
 }
 body {
   color: #16181B;
@@ -10,16 +9,34 @@ body {
   font-weight: 400px;
   font-size: 16px;
   line-height: 1.4;
+  cursor: none;
+  margin: 0;
 }
+
+.cursor {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #9BCE26;
+  position: absolute;
+  /* 뷰포트 모서리 기준 지름 중앙정렬 */
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  transition: opacity .25s ease;
+  backdrop-filter: invert(100%);
+  pointer-events: none;
+}
+
 main {
   /* display: flex;
   flex-direction: column; */
-  min-height: 150vh; /* 화면 전체 높이 */
+  min-height: 150vh; /* �붾㈃ �꾩껜 �믪씠 */
   /* margin: 0; */
 }
 img {
   display: block;
   max-width: 100%;
+  cursor: unset;
 }
 a,ul {
   text-decoration: none;
@@ -54,12 +71,14 @@ header .logo {
   bottom: 0;
   left: 100px;
   margin: auto;
-  cursor: pointer;
+  /* cursor: pointer; */
+  cursor: unset;
 }
 header .logo>img {
   position: relative;
   width: 180px;
   height: 65px;
+  cursor: unset;
 }
 
 /* top_sub_menu */
@@ -75,11 +94,10 @@ header .top_sub_menu li {
 }
 header .top_sub_menu li::before {
   content: "";
-  /* display: block; ::before가상 요소는 인라인 요소로 block요소 전환으로 가로세로 값 지정하도록 바꿔준다. ②그럼으로 이 부분은 삭제하기 */
   width: 1px;
   height: 12px;
   background-color: #DDD;
-  position: absolute; /* ①해당 코드는 요소를 display:block으로 자동 전환해준다. */
+  position: absolute;
   top: 0;
   bottom: 0;
   margin: auto;
@@ -93,7 +111,17 @@ header .top_sub_menu li a {
 }
 header .top_sub_menu li a:hover {
   text-decoration: underline;
+  cursor: unset;
 }
+header .top_sub_menu li a:hover .cursor {
+  width: 50px;
+  height: 50px;
+  transition: opacity 0.25s;
+  border-radius: 50%;
+  backdrop-filter: invert(0%);
+  cursor: unset;
+}
+
 header .sub-menu {
   display: flex;
   position: absolute;
@@ -113,6 +141,7 @@ header .sub-menu .search input {
   display: block;
   padding: 0 10px 0 14px;
   outline: none;
+  cursor: unset;
 }
 header .sub-menu .search .material-icons {
   width: 40px;
@@ -147,6 +176,7 @@ header .sub-menu .menu li a {
 }
 header .sub-menu .menu li a:hover {
   text-decoration: underline;
+  cursor: unset;
 }
 
 /* main menu */
@@ -166,28 +196,34 @@ header .main-menu .main-menu--wrap {
   justify-content: space-evenly;
 }
 header .main-menu .main-menu--wrap .item {
-  
+
 }
 header .main-menu .main-menu--wrap .item .item--name {
   position: relative;
 }
 header .main-menu .main-menu--wrap .item:hover .item--name {
   text-decoration: underline;
+  
+}
+header .main-menu .main-menu--wrap .item .item--name a {
+  cursor: unset;
 }
 header .main-menu .main-menu--wrap .item:first-child:hover .item--name {
-
+  
 }
 header .main-menu .main-menu--wrap .item .item--name button {
   width: 170px;
   height: 30px;
   font-size: 16px;
-  border: 0;
+  border: 0; 
 }
 header .main-menu .main-menu--wrap .item .item--name button:hover {
   text-decoration: underline;
+  cursor: unset;
 }
 header .main-menu .main-menu--wrap .item .item--name .material-icons--lists {
   justify-content: center;
+  cursor: unset;
 }
 header .main-menu .main-menu--wrap .item .item--name button .material-icons--lists .material-icons.truck {
   position: absolute;
@@ -223,6 +259,7 @@ header .main-menu .main-menu--wrap .item--contents {
 }
 header .main-menu .main-menu--wrap .item:first-child:hover .item--contents {
   display: block;
+  cursor: unset;
 }
 header .main-menu .main-menu--wrap .item--contents .delivery>a {
   color: #777;
@@ -232,6 +269,7 @@ header .main-menu .main-menu--wrap .item--contents .delivery>a {
 header .main-menu .main-menu--wrap .item--contents .delivery>a:hover {
   color: #F44336;
   text-decoration: underline #F44336;
+  cursor: unset;
 }
 
 /* PROMOTION */
@@ -247,12 +285,13 @@ header .main-menu .main-menu--wrap .item--contents .delivery>a:hover {
 .promotion .swiper .swiper-wrapper .swiper-slide {
   
 }
-.promotion .swiper .swiper-wrapper .swiper-slide img {
+.promotion .swiper .swiper-wrapper .swiper-slide>img {
   width: auto;
   height: 500px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  cursor: unset;
 }
 
 /* PAGINATION */
@@ -265,13 +304,16 @@ header .main-menu .main-menu--wrap .item--contents .delivery>a:hover {
 .promotion .swiper .swiper-button-prev {
   color: #FFF;
   margin-left: 150px;
+  cursor: unset;
 }
 .promotion .swiper .swiper-button-next {
   color: #FFF;
   margin-right: 150px;
+  cursor: unset;
 }
 .promotion .swiper .swiper-scrollbar {
   color: #FFF;
+  cursor: unset;
 }
 
 /* PRODUCTS */
@@ -355,6 +397,7 @@ h2 {
   font-size: 14px;
   font-weight: 700;
   margin-top: 10px;
+  cursor: unset;
 }
 .product_unit .main_board .products_unit .product_img_wrap .product--name>a,
 .product_unit .main_board_row2 .products_unit .product_img_wrap .product--name>a {
@@ -363,6 +406,7 @@ h2 {
   font-weight: lighter;
   margin: 5px 0 0;
   padding: 2px 0;
+  cursor: unset;
 }
 .product_unit .main_board .products_unit .product_img_wrap .product--price,
 .product_unit .main_board_row2 .products_unit .product_img_wrap .product--price {
@@ -461,6 +505,7 @@ footer .footer_menu .menu_ul li a {
 }
 footer .footer_menu .menu_ul li a:hover {
   text-decoration: underline;
+  cursor: unset;
 }
 footer .footer_menu .menu_ul li a.red {
   color: #F44336;
@@ -485,6 +530,7 @@ footer .footer_menu .footer_toggle_menu .toggle_menu .toggle_menu--name button {
   height: 30px;
   padding: 0 20px 0 10px;
   border: 0;
+  cursor: unset;
 }
 footer .footer_menu .footer_toggle_menu .toggle_menu .toggle_menu--name .material-icons {
   height: 24px;
@@ -561,6 +607,7 @@ footer .footer_contents .QR_info img {
 footer .footer_contents .footer_info {
   margin: 0 215px;
   padding: 5px 0 5px 0;
+  
 }
 footer .footer_contents button {
   width: 100px;
@@ -580,4 +627,3 @@ footer .footer_end p {
   padding: 0 0 0px 0;
   position: relative;
 }
-

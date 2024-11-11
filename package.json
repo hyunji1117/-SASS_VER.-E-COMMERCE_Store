@@ -1,0 +1,13 @@
+{
+  "name": "e-commerce(scss-ver.)",
+  "version": "1.0.0",
+  "description": "##### 참여자: 김현지 (개인 프로젝트)",
+  "main": "main.js",
+  "scripts": {
+    "dev": "parcel main.html",
+    "build": "parcel build main.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
