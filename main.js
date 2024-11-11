@@ -54,4 +54,26 @@ const updateCursor = (e) => {
   cursor.style.left = e.pageX + 'px';
 }
 
+// function updateCursor(e){
+//   gsap.to(cursor, 0.4, {
+//     x: e.clientX,
+//     y: e.clientY
+//   });
+// }
+
 window.addEventListener('mousemove', updateCursor);
+
+// cursor.forEach(link => {
+//   link.addEventListener("mouseover", () => {
+//     cursor.classList.add("scale-cursor");
+//     gsap.to(cursor, 0.4, {
+//       scale: 2
+//     });
+//   });
+
+//   link.addEventListener("mouseleave", () => {
+//     cursor.classList.remove("scale-cursor");
+//     gsap.to(cursor, 0.4, {
+//       scale: 1
+//     });
+//   });

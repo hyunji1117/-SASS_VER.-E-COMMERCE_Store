@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "dev": "parcel main.html",
-    "build": "parcel build main.html"
+    "build": "parcel build main.html",
+    "start": "node sever.js"
   },
   "keywords": [],
   "author": "",

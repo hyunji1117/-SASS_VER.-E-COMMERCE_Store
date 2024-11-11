@@ -17,15 +17,21 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #9BCE26;
+  background-color: red;
   position: absolute;
+  pointer-events: none;
   /* 뷰포트 모서리 기준 지름 중앙정렬 */
+  transform-origin: 100% 100%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
-  transition: opacity .25s ease;
   backdrop-filter: invert(100%);
   pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 1000;
 }
+/* .scale-cursor{
+  background: white;
+  color: #16181B;
+} */
 
 main {
   /* display: flex;
