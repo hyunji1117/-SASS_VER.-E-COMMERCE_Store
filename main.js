@@ -12,7 +12,7 @@ new Swiper(".swiper", {
   },
   loop: true,
   autoplay: {
-    delay: 4500
+    delay: 4500,
   },
 });
 
