@@ -1,9 +1,19 @@
 /* COMMON */
+@media (max-width: 992px) {
+  .top_sub_menu {
+    display: none;
+  }
+  ul.menu {
+    display: none;
+  }
+}
+  
+
 html, body {
   width: 100%;
-  height: 2300px;
 }
 body {
+  /* height: 2300px; */
   color: #16181B;
   font-family: "Gothic A1", sans-serif;
   font-weight: 400px;
@@ -14,8 +24,8 @@ body {
 }
 
 .cursor {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: red;
   position: absolute;
@@ -28,10 +38,7 @@ body {
   mix-blend-mode: difference;
   z-index: 1000;
 }
-/* .scale-cursor{
-  background: white;
-  color: #16181B;
-} */
+
 
 main {
   /* display: flex;
@@ -42,7 +49,7 @@ main {
 img {
   display: block;
   max-width: 100%;
-  cursor: unset;
+  cursor: none;
 }
 a,ul {
   text-decoration: none;
@@ -64,8 +71,9 @@ header {
   border-bottom: 1px double #DDD;
   position: relative;
 }
+
 header .inner {
-  width: 1200px;
+  /* width: 1200px; */
   height: 165px;
   margin: 0 auto;
   position: relative;
@@ -129,6 +137,7 @@ header .top_sub_menu li a:hover .cursor {
 }
 
 header .sub-menu {
+  height: 100px;
   display: flex;
   position: absolute;
   top: 55px;
@@ -188,9 +197,10 @@ header .sub-menu .menu li a:hover {
 /* main menu */
 header .main-menu {
   border-top: 1px solid #DDD ;
+  position: relative;
 }
 header .main-menu .main-menu--wrap {
-  width: 100%;
+  /* width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -199,7 +209,14 @@ header .main-menu .main-menu--wrap {
   display: flex;
   margin-bottom: 2px;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-evenly; */
+  
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 12px;
 }
 header .main-menu .main-menu--wrap .item {
 
@@ -289,15 +306,15 @@ header .main-menu .main-menu--wrap .item--contents .delivery>a:hover {
   
 }
 .promotion .swiper .swiper-wrapper .swiper-slide {
-  
+
 }
-.promotion .swiper .swiper-wrapper .swiper-slide>img {
-  width: auto;
+.promotion .swiper .swiper-wrapper .swiper-slide img {
+  width: 100%;
   height: 500px;
+  object-fit: scale-down;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  cursor: unset;
 }
 
 /* PAGINATION */

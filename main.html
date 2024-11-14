@@ -27,7 +27,7 @@
   <!-- //GSAP -->
 
   <!-- connect scss -->
-  <link rel="stylesheet" href="/main.css" />
+  <link rel="stylesheet" href="/main.scss" />
   <!-- //connect scss -->
 
   <!-- Swiper JS -->
@@ -46,16 +46,9 @@
   <!-- HEADER -->
   <header>
 
-    <div class="inner">
-
-      <!-- logo img -->
-      <a href="/" class="logo">
-        <img src="./image/logo.png" alt="로고 이미지" />
-      </a>
-      <!-- //logo img -->
-
-      <!-- top_sub_menu -->
-      <ul class="top_sub_menu">
+    <!-- top_sub_menu -->
+    <div class="top_sub_menu">
+      <ul class="menu_list--user_manage">
         <li>
           <a href="javascript:void(0)">회원가입</a>
         </li>
@@ -69,21 +62,30 @@
           <a href="javascript:void(0)">고객센터</a>
         </li>
       </ul>
-      <!-- //top_sub_menu -->
+    </div>
+    <!-- //top_sub_menu -->
+
+    <div class="header__inner">
+      <!-- logo img -->
+      <h1>
+        <a href="/" class="logo">
+          <img src="./image/logo.png" alt="로고 이미지" />
+        </a>
+      </h1>
+      <!-- //logo img -->
+
+      <!-- search box -->
+      <div class="search">
+        <input type="text" />
+          <div class="material-icons">
+            search
+          </div>
+      </div>
+      <!-- //search box -->
 
       <!-- sub-menu -->
       <div class="sub-menu">
-
-        <!-- search box -->
-        <div class="search">
-          <input type="text" />
-            <div class="material-icons">
-              search
-            </div>
-        </div>
-        <!-- //search box -->
-
-        <ul class="menu">
+        <ul class="menu_list--promotion_event">
           <li>
             <a href="javascript:void(0)">베스트</a>
           </li>
@@ -100,85 +102,98 @@
             <a href="javascript:void(0)">선물하기</a>
           </li>
         </ul>
-
       </div>
       <!-- //sub-menu -->
 
+    </header>
+    <!-- //HEADER -->
+    
+    <!-- MAIN -->
+    <main>
       <!-- main menu -->
       <div class="main-menu">
-        <ul class="main-menu--wrap">
 
-          <li class="item">
-            <div class="item--name">
-              <button>
-                <div class="material-icons--lists">
-                  <div class="material-icons truck" >
-                    local_shipping
-                  </div>
-                  슈팅배송
-                  <div class="material-icons arrow_drop_down">
-                    arrow_drop_down
-                  </div>
+        <!-- delivery -->
+        <div class="delivery">
+
+          <div class="deliver__item--name">
+            <button>
+              <div class="material-icons--lists">
+                <div class="material-icons truck" >
+                  local_shipping
                 </div>
-              </button>
-            </div>
-  
-            <div class="item--contents">
-              <ul>
-                <li class="delivery">
-                  <a href="javascript:void(0)">새벽배송</a>
-                </li>
-                <li class="delivery">
-                  <a href="javascript:void(0)">1DAY배송</a>
-                </li>
-                <li class="delivery">
-                  <a href="javascript:void(0)">국제배송</a>
-                </li>
-                <li class="delivery">
-                  <a href="javascript:void(0)">지정일배송</a>
-                </li>
-              </ul>
-            </div>
-          </li>
+                슈팅배송
+                <div class="material-icons arrow_drop_down">
+                  arrow_drop_down
+                </div>
+              </div>
+            </button>
+          </div>
 
-          <!-- <div class="material-icons arrow_down" >
-            keyboard_arrow_down
-          </div> -->
+          <div class="deliver__item--contents">
+            <ul>
+              <li class="deliver__contents">
+                <a href="javascript:void(0)">새벽배송</a>
+              </li>
+              <li class="deliver__contents">
+                <a href="javascript:void(0)">1DAY배송</a>
+              </li>
+              <li class="deliver__contents">
+                <a href="javascript:void(0)">국제배송</a>
+              </li>
+              <li class="deliver__contents">
+                <a href="javascript:void(0)">지정일배송</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- //delivery -->
 
-          <li class="item">
-            <div class="item--name">
-              <a href="javascript:void(0)">여성의류</a>
-            </div>
+        <!-- category -->
+        <ul class="menu_list--shopping_cate">
+          <li class="shopping_cate__item--name">
+            <a href="javascript:void(0)">
+              <span>
+                여성의류
+              </span>
+            </a>
           </li>
-          <li class="item">
-            <div class="item--name">
-              <a href="javascript:void(0)">남성의류</a>
-            </div>
+          <li class="shopping_cate__item--name">
+            <a href="javascript:void(0)">
+              <span>
+                남성의류
+              </span>
+            </a>
           </li>
-          <li class="item">
-            <div class="item--name">
-              <a href="javascript:void(0)">화장품</a>
-            </div>
+          <li class="shopping_cate__item--name">
+            <a href="javascript:void(0)">
+              <span>
+                화장품
+              </span>
+            </a>
           </li>
-          <li class="item">
-            <div class="item--name">
-              <a href="javascript:void(0)">패션잡화</a>
-            </div>
+          <li class="shopping_cate__item--name">
+            <a href="javascript:void(0)">
+              <span>
+                패션잡화
+              </span>
+            </a>
           </li>
-          <li class="item">
-            <div class="item--name">
-              <a href="javascript:void(0)">신발</a>
-            </div>
+          <li class="shopping_cate__item--name">
+            <a href="javascript:void(0)">
+              <span>
+                신발
+              </span>
+            </a>
           </li>
+        </ul> 
+        <!-- //category -->
 
-      </ul>
-    </div>
-    <!-- //main menu -->
-  </header>
-  <!-- //HEADER -->
+      </div>
+      <!-- //main menu -->
+    
 
-  <main>
-    <!-- PROMOTION -->
+    <!-- PROMOTION 수정 to be continued-->
   <scetion class="promotion">
     <div class="swiper">
       <div class="swiper-wrapper">
@@ -447,9 +462,8 @@
 
   </section>
   <!-- //PRODUCTS -->
-
-  </main>
-  
+    </main>
+    <!-- //MAIN -->
   
 
   <!-- FOOTER -->

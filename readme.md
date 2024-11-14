@@ -4,7 +4,7 @@
   
 #### 프로젝트 기간: 2024.10.20 ~ 2024.11.04 (14일)  
   
-#### 프로젝트 도구: Swiper, Google Fonts 및 Material Icons
+#### 프로젝트 도구: Swiper, Google Fonts 및 Material Icons, Media Qury
   
 #### 사용 언어: Html, Css, Javascript  
   
