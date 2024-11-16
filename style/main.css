@@ -1,0 +1,127 @@
+@charset "UTF-8";
+/* COMMON */
+@media screen and (max-width: 768px) {
+  .menu_list--user_manage {
+    display: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .menu_list--promotion_event {
+    display: none;
+  }
+}
+html, body {
+  width: 100%;
+}
+
+body {
+  /* height: 2300px; */
+  color: #16181B;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 400px;
+  font-size: 62.5%;
+  line-height: 1.4;
+  cursor: none;
+  margin: 0;
+}
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  pointer-events: none;
+  /* 뷰포트 모서리 기준 지름 중앙정렬 */
+  transform-origin: 100% 100%;
+  transform: translate(-50%, -50%);
+  -webkit-backdrop-filter: invert(100%);
+          backdrop-filter: invert(100%);
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 1000;
+}
+
+main {
+  /* display: flex;
+  flex-direction: column; */
+  min-height: 150vh;
+  /* margin: 0; */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  cursor: none;
+}
+
+a, ul {
+  text-decoration: none;
+  list-style: none;
+  color: #16181B;
+}
+
+a {
+  display: block;
+}
+
+button {
+  /* border: none; */
+  outline: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+/* HEADER */
+header {
+  position: relative;
+}
+header .top_sub_menu .menu_list--user_manage {
+  width: 70%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: right;
+}
+header .top_sub_menu .menu_list--user_manage li::before {
+  content: "";
+  width: 0.1em;
+  height: 1.2em;
+  background-color: #DDD;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: 1em auto;
+}
+header .top_sub_menu .menu_list--user_manage a {
+  font-size: 1.4em;
+  padding: 0.35em 0.7em;
+  white-space: nowrap;
+}
+header .header__inner {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: pink;
+}
+header .header__inner h1 {
+  background-color: lightblue;
+}
+header .header__inner h1 a img {
+  width: 16em;
+}
+header .header__inner .sub-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header .header__inner .sub-menu .menu_list--promotion_event {
+  display: flex;
+}
+header .header__inner .sub-menu .menu_list--promotion_event a {
+  font-size: 1.6em;
+  padding: 0.35em 0.7em;
+  justify-content: center;
+}
+
+/* MAIN *//*# sourceMappingURL=main.css.map */
