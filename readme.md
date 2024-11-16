@@ -44,50 +44,50 @@
   #### 4-2.브라우저 개발자 도구 확인 시 "footer"가 "product unit row2"과 중복되는 현상 개선 중.
   #### 4-3.부드러운 스크롤 경험 개선을 위해 반응형 뷰포트 코드로 수정 진행 중.
 
-  #### 4-4..sub-menu 내부의 <ul> 리스트를 Flex 컨테이너를 사용해 수직 중앙으로 정렬 안됨.
+  #### 4-4.`.sub-menu` 내부의 <ul> 리스트를 Flex 컨테이너를 사용해 수직 중앙으로 정렬 안됨.
   ###### 4-4-1.문제 정의
   증상:  
-  <ul class="menu_list--promotion_event">가 부모 요소.sub-menu의 수직 중앙에 정렬되지 않고, 상단에 위치.   
+  `<ul class="menu_list--promotion_event">`가 부모 요소`.sub-menu`의 수직 중앙에 정렬되지 않고, 상단에 위치.   
 
   ###### 4-4-2.코드 확인 및 추가 발생 원인 파악 
-  .menu_list--promotion_event에 display: flex 적용되어 text 수평 정렬은 적용되었지만, 부모 요소 .sub-menu의 높이에 따른 수직 정렬 설정이 누락되었을 가능성이 있음.
-  .sub-menu가 Flexbox가 아니어서 전체 높이에서 중앙 정렬이 작동하지 않을 가능성이 있음.  
+  `.menu_list--promotion_event`에 `display: flex;` 적용되어 text 수평 정렬은 적용되었지만, 부모 요소 `.sub-menu`의 높이에 따른 수직 정렬 설정이 누락되었을 가능성이 있음.
+  `.sub-menu`가 Flexbox가 아니어서 전체 높이에서 중앙 정렬이 작동하지 않을 가능성이 있음.  
 
   ###### 4-4-3.문제의 원인 분석
-  ① .sub-menu의 높이가 명시되지 않았음.   
+  ① `.sub-menu`의 높이가 명시되지 않았음.   
 
   기본적으로 HTML 요소는 내용(content)에 맞는 크기를 가진다.  
-  .sub-menu 내부에는 <ul> 리스트만 들어 있기 때문에, .sub-menu의 높이는 <ul> 콘텐츠 높이만큼만 설정된다.  
-  결과적으로 .sub-menu의 높이가 justify-content: center가 작동할 만큼 충분하지 않는 것이다.  
+  `.sub-menu` 내부에는 <ul> 리스트만 들어 있기 때문에, `.sub-menu`의 높이는 <ul> 콘텐츠 높이만큼만 설정된다.  
+  결과적으로 `.sub-menu`의 높이가 `justify-content: center`가 작동할 만큼 충분하지 않는 것이다.  
 
   ② Flex 컨테이너가 공간 기준으로 작동함  
 
-  justify-content와 align-items 속성은 **부모 요소의 가용 공간(남는 여백)**을 기준으로 자식을 정렬한다.  
-  그러나 .sub-menu의 높이가 자식 콘텐츠와 동일하다면 "남는 공간"이 없어서 정렬이 제대로 작동하지 않는다.  
+  `justify-content`와 `align-items` 속성은 **부모 요소의 가용 공간(남는 여백)**을 기준으로 자식을 정렬한다.  
+  그러나 `.sub-menu`의 높이가 자식 콘텐츠와 동일하다면 "남는 공간"이 없어서 정렬이 제대로 작동하지 않는다.  
 
   ###### 4-4-4.디버깅 과정
   ① 개발자 도구(DevTools)로 요소 확인  
     
-  .sub-menu의 높이가 지정되지 않음. 기본 높이가 콘텐츠의 높이로 제한되고 있어 수직 정렬이 적용되지 않음.  
-  .menu_list--promotion_event의 display: flex는 가로 방향으로만 작동하고, 세로 방향 정렬은 처리되지 않음.  
+  `.sub-menu`의 높이가 지정되지 않음. 기본 높이가 콘텐츠의 높이로 제한되고 있어 수직 정렬이 적용되지 않음.  
+  `.menu_list--promotion_event`의 `display: flex;`는 가로 방향으로만 작동하고, 세로 방향 정렬은 처리되지 않음.  
 
   ② CSS 속성 점검  
 
-  .sub-menu에 display: flex와 flex-direction: column을 추가하지 않아 수직 중앙 정렬 조건을 충족하지 못함.  
+  `.sub-menu`에 `display: flex;`와 `flex-direction: column;`을 추가하지 않아 수직 중앙 정렬 조건을 충족하지 못함.  
 
   ###### 4-4-5.코드 적용 및 결과 확인
   이전 상태:  
-  <ul class="menu_list--promotion_event">가 상단에 고정되어 있었음.
+  `<ul class="menu_list--promotion_event">`가 상단에 고정되어 있었음.
   수정 후 상태:  
-  .menu_list--promotion_event가 .sub-menu의 전체 높이 기준으로 수직 중앙에 배치됨.
+  `.menu_list--promotion_event`가 `.sub-menu`의 전체 높이 기준으로 수직 중앙에 배치됨.
 
   ###### 4-4-6.결론
 
   ① 문제 원인:  
-  .sub-menu에 Flexbox 레이아웃과 세로 방향 정렬 속성(flex-direction: column, justify-content: center)이 누락됨. 부모 컨테이너에서 수직 중앙 정렬이 불가능한 상태였음.  
+  `.sub-menu`에 Flexbox 레이아웃과 세로 방향 정렬 속성(`flex-direction: column;`, `justify-content: center;`)이 누락됨. 부모 컨테이너에서 수직 중앙 정렬이 불가능한 상태였음.  
 
   ② 해결 방법:
-  .sub-menu를 Flexbox로 설정하고, 세로 방향 중앙 정렬 속성을 추가.
+  `.sub-menu`를 Flexbox로 설정하고, 세로 방향 중앙 정렬 속성을 추가.
 
 
 
