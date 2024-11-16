@@ -57,7 +57,7 @@
   ① `.sub-menu`의 높이가 명시되지 않았음.   
 
   기본적으로 HTML 요소는 내용(content)에 맞는 크기를 가진다.  
-  `.sub-menu` 내부에는 <ul> 리스트만 들어 있기 때문에, `.sub-menu`의 높이는 <ul> 콘텐츠 높이만큼만 설정된다.  
+  `.sub-menu` 내부에는 `<ul>` 리스트만 들어 있기 때문에, `.sub-menu`의 높이는 `<ul>` 콘텐츠 높이만큼만 설정된다.  
   결과적으로 `.sub-menu`의 높이가 `justify-content: center`가 작동할 만큼 충분하지 않는 것이다.  
 
   ② Flex 컨테이너가 공간 기준으로 작동함  
