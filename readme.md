@@ -60,7 +60,7 @@
   `.sub-menu` 내부에는 `<ul>` 리스트만 들어 있기 때문에, `.sub-menu`의 높이는 `<ul>` 콘텐츠 높이만큼만 설정된다.  
   결과적으로 `.sub-menu`의 높이가 `justify-content: center`가 작동할 만큼 충분하지 않는 것이다.  
 
-  ② Flex 컨테이너가 공간 기준으로 작동함  
+  ② Flexbox가 공간 기준으로 작동함  
 
   `justify-content`와 `align-items` 속성은 **부모 요소의 가용 공간(남는 여백)**을 기준으로 자식을 정렬한다.  
   그러나 `.sub-menu`의 높이가 자식 콘텐츠와 동일하다면 "남는 공간"이 없어서 정렬이 제대로 작동하지 않는다.  
@@ -88,6 +88,44 @@
 
   ② 해결 방법:
   `.sub-menu`를 Flexbox로 설정하고, 세로 방향 중앙 정렬 속성을 추가.
+
+  #### 4-5.`.search`와 `.material-icons`의 높이 문제
+  ###### 4-5-1.문제 정의
+  증상:  
+  `input`의 높이는 정상적으로 `3.25em`로 설정되었으나, `.search`와 `.material-icons`의 높이가 `input`보다 더 크게 설정되어 레이아웃이 어긋나는 문제 발생.
+  ###### 4-5-2.문제의 원인 분석
+  ① `bottom` 속성의 영향  
+
+  `.search`와 `.material-icons`에서 `position: absolute;`로 설정된 상태에서 `top`과 `bottom`이 동시에 지정되어 있었다.  
+  `top`과 `bottom`이 지정되면 요소의 높이(`height`)가 부모 요소에 종속되지 않고, `top`과 `bottom`의 거리만큼 확장된다.  
+
+  ② 불필요한 레이아웃 설정  
+
+  `.material-icons`에 `margin: auto;`와 함께 `top`과 `bottom`이 지정되어 있어, 아이콘의 위치뿐만 아니라 크기에도 영향을 미쳤다.  
+
+  ③ 부모 요소 크기와 자식 요소의 불일치
+
+  `.search`에 높이가 명시되지 않고 `top`과 `bottom`으로만 크기가 결정되었으며, 이로 인해 input과 다른 높이를 가지게 되었다.
+
+
+  ###### 4-5-3.코드 적용 및 결과 확인
+  ① 문제 원인 검증  
+
+  `.search`와 `.material-icons`의 `bottom` 속성을 제거하자, 높이가 `input`과 동일해짐을 확인.  
+  이는 `top`과 `bottom`으로 높이가 과도하게 설정되었음을 확인 됨.  
+
+  ② `bottom` 제거  
+
+  `.search`와 `.material-icons`에서 `bottom` 속성을 제거하여 요소의 크기를 의도한 대로 제한.  
+
+  ③ 레이아웃 개선
+
+  flexbox를 사용하여 `.search` 내에서 `input`과 `.material-icons`의 정렬을 간소화.  
+  불필요한 위치 관련 속성(`top`, `bottom`, `margin`)을 제거하고, 아이콘 크기는 `font-size`로 제어 함.
+  ###### 4-5-4.트러블슈팅의 교훈
+  `position: absolute;`와 `top`, `bottom`의 조합을 사용할 때, 요소의 크기(`height`)에 미치는 영향을 주의 깊게 살펴봐야 한다.  
+  복잡한 레이아웃 설정 대신 flexbox를 활용하면, 자식 요소 정렬과 크기 조정이 훨씬 간단해진다.  
+  항상 문제의 원인을 단계적으로 확인하고, 작은 수정으로 해결 여부를 검증하며 진행해야 한다.
 
 
 

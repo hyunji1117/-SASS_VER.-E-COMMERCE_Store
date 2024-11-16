@@ -1,6 +1,40 @@
 /* COMMON */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1390px) {
   .menu_list--user_manage {
+    display: none;
+  }
+  .header__inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .search {
+    // position: absolute;
+    // top: 2em;
+    // left: 25em;
+    // height: 4em;
+    display: flex; /* 레이아웃 정렬을 위해 flexbox 사용 */
+    // align-items: center;
+  }
+  input {
+    // height: 100%;
+    position: absolute;
+    left: -4.5em;
+  }
+  .material-icons {
+    position: relative;
+    left: 9.5em;
+  }
+  .sub-menu {
+    // width: 70%;
+  }
+  .menu_list--promotion_event {
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top_sub_menu {
     display: none;
   }
 }
@@ -73,9 +107,9 @@ button {
 
 /* HEADER */
 header {
+  width: 100%;
   position: relative;
   .top_sub_menu {
-    
     .menu_list--user_manage {
       width: 70%;
       display: flex;
@@ -95,7 +129,6 @@ header {
         font-size: 1.4em;
         padding: 0.35em 0.7em;
         white-space: nowrap;
-        
       }
     }
   }
@@ -104,22 +137,36 @@ header {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    background-color: pink;
+    position: relative;
     h1 {
-      background-color: lightblue;
       a {
-        // width: 16em;
-          
         img {
           width: 16em;
-          // width: 100%;
-          // height: 10em;
         }
       }
     }
     .search {
+      position: absolute;
+      top: 2em;
+      left: 25em;
+      height: 4em;
+      display: flex; /* 레이아웃 정렬을 위해 flexbox 사용 */
+      align-items: center;
+      input {
+        width: 25.5em;
+        height: 100%; /* 부모 요소와 동일한 높이 */
+        border: 0.1em solid #F44336;
+        box-sizing: border-box;
+        border-radius: 5em;
+        padding: 0 10px 0 14px;
+        outline: none;
+        cursor: unset;
+      }
       .material-icons {
-
+        font-size: 2.5em;
+        cursor: pointer;
+        position: relative;
+        right: 1.75em;
       }
     }
     .sub-menu {
@@ -135,6 +182,12 @@ header {
         }
       }
     }
+    .material-icons.more-btn{
+      border: none;
+      font-size: 4em;
+      color: rgb(153, 151, 151);
+      display: none;
+    }
   }
 }
 
@@ -142,6 +195,7 @@ header {
 main {
   .main-menu {
     .delivery {
+      background-color: lightblue;
       .deliver__item--name {
         button {
           .material-icons--lists {
