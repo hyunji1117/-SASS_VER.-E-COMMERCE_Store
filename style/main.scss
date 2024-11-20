@@ -1,53 +1,7 @@
 /* COMMON */
-@media screen and (max-width: 1390px) {
-  .menu_list--user_manage {
-    display: none;
-  }
-  .header__inner {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  .search {
-    // position: absolute;
-    // top: 2em;
-    // left: 25em;
-    // height: 4em;
-    display: flex; /* 레이아웃 정렬을 위해 flexbox 사용 */
-    // align-items: center;
-  }
-  input {
-    // height: 100%;
-    position: absolute;
-    left: -4.5em;
-  }
-  .material-icons {
-    position: relative;
-    left: 9.5em;
-  }
-  .sub-menu {
-    // width: 70%;
-  }
-  .menu_list--promotion_event {
-    justify-content: space-evenly;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .top_sub_menu {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .menu_list--promotion_event {
-    display: none;
-  }
-}
-  
-
-html, body {
-  width: 100%;
+html {
+  width: 100em;
+  height: 3000px;
 }
 body {
   /* height: 2300px; */
@@ -61,8 +15,8 @@ body {
 }
 
 .cursor {
-  width: 20px;
-  height: 20px;
+  width: 2em;
+  height: 2em;
   border-radius: 50%;
   background-color: red;
   position: absolute;
@@ -71,15 +25,13 @@ body {
   transform-origin: 100% 100%;
   transform: translate(-50%, -50%);
   backdrop-filter: invert(100%);
-  pointer-events: none;
   mix-blend-mode: difference;
   z-index: 1000;
 }
 main {
-  /* display: flex;
-  flex-direction: column; */
-  min-height: 150vh;
-  /* margin: 0; */
+  // min-height: 150vh;
+  width: 100%;
+  height: 60%; /* 화면 전체 높이 */
 }
 img {
   display: block;
@@ -95,7 +47,7 @@ a {
   display: block;
 }
 button {
-  /* border: none; */
+  border: none;
   outline: none;
   background-color: inherit ;
   cursor: pointer;
@@ -108,6 +60,7 @@ button {
 /* HEADER */
 header {
   width: 100%;
+  height: 10%;
   position: relative;
   .top_sub_menu {
     .menu_list--user_manage {
@@ -139,16 +92,16 @@ header {
     justify-content: space-between;
     position: relative;
     h1 {
-      a {
+      a.logo {
         img {
-          width: 16em;
+          width: 18em;
         }
       }
     }
     .search {
       position: absolute;
-      top: 2em;
-      left: 25em;
+      top: 2.5em;
+      left: 30em;
       height: 4em;
       display: flex; /* 레이아웃 정렬을 위해 flexbox 사용 */
       align-items: center;
@@ -193,22 +146,62 @@ header {
 
 /* MAIN */
 main {
+  width: 100%;
+  height: 80%;
+  border-top: 0.1em solid #DDD;
+  position: relative;
   .main-menu {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
     .delivery {
-      background-color: lightblue;
+      background-color: #DDD;
+      
       .deliver__item--name {
+        // width: 20em;
+        // height: 5em;
+        
         button {
+          width: 15em;
+          height: 3.5em;
           .material-icons--lists {
+            font-size: 1.2em;
             .material-icons.truck {
-
+              position: absolute;
+              top: 0.45em;
+              left: 15em;
+            }
+            h2 {
+              text-align: center;
             }
             .material-icons.arrow_drop_down {
-
+              // display: flex;
+              width: 1em;
+              position: absolute;
+              top: 0.45em;
+              left: 19em;
             }
           }
         }
       }
       .deliver__item--contents {
+        // display: flex;
+        position: absolute;
+        top: 2.25em;
+        left: 8em;
+        width: 7.5em;
+        height: 9em;
+        background-color: #F9F9F9;
+        font-size: 1.5em;
+        border-radius: 0.13em;
+        text-align: center;
+        transition: height .1s;
+        overflow: hidden;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        display: none;
         .deliver__contents {
           a {
 
@@ -217,13 +210,58 @@ main {
       }
     }
     .menu_list--shopping_cate {
+      display: flex;
       .shopping_cate__item--name {
         a {
+          padding: 0 0 0 10em;
+          text-align: center;
           span {
-            
+            font-size: 1.6em;
           }
         }
       }
     }
+    .deliver__item--name:first-child:hover {
+      display: block;
+    }
   }
+
+  .promotion {
+    .swiper {
+      .swiper-wrapper {
+        width: 1000px;
+        height: 500px;
+        .swiper-slide {
+          a {            
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+      .swiper-pagination {
+      }
+      .nav_btn {
+        // position: relative;
+        .swiper-button-prev {
+          // position: relative;
+          // bottom: 8em;
+          // left: 125em;
+          // color: #F44336;
+        }
+        .swiper-button-next {
+          // position: relative;
+          // bottom: 10.1em;
+          // left: 130em;
+          // color: #F44336;
+        }
+      }
+      .swiper-scrollbar {
+      }
+    }
+  }
+
+  
 }
