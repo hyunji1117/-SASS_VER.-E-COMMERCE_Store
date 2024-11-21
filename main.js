@@ -55,3 +55,45 @@ const updateCursor = (e) => {
 }
 
 window.addEventListener('mousemove', updateCursor);
+
+
+
+//슈팅배송 마우스 호버 시 가다림 효과
+// 버튼과 컨텐츠 요소를 선택
+const deliverItemName = document.querySelector('.deliver__item--name');
+const deliverItemContents = document.querySelector('.deliver__item--contents');
+
+// 호버 상태 유지 시간 (밀리초)
+const HOVER_DELAY = 2000;
+const LEAVE_HOVER = 100;
+
+// 타이머 변수
+let hoverTimer;
+
+// 마우스를 버튼 위에 올렸을 때
+deliverItemName.addEventListener('mouseenter', () => {
+  clearTimeout(hoverTimer); // 이전 타이머를 취소
+  deliverItemContents.style.display = 'block'; // 콘텐츠 표시
+  deliverItemContents.style.height = '8.5em'; // 높이 설정
+});
+
+// 마우스를 버튼에서 벗어났을 때
+deliverItemName.addEventListener('mouseleave', () => {
+  hoverTimer = setTimeout(() => {
+    deliverItemContents.style.height = '0'; // 콘텐츠 숨김
+    deliverItemContents.style.display = 'none';
+  }, LEAVE_HOVER); // 2초 후에 숨김
+});
+
+// 마우스가 `deliver__item--contents` 위에 있을 때 숨김 방지
+deliverItemContents.addEventListener('mouseenter', () => {
+  clearTimeout(hoverTimer); // 타이머 취소
+});
+
+// 마우스가 `deliver__item--contents`를 벗어났을 때 다시 타이머 시작
+deliverItemContents.addEventListener('mouseleave', () => {
+  hoverTimer = setTimeout(() => {
+    deliverItemContents.style.height = '0';
+    deliverItemContents.style.display = 'none';
+  }, LEAVE_HOVER);
+});

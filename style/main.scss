@@ -65,23 +65,38 @@ header {
   .top_sub_menu {
     .menu_list--user_manage {
       width: 70%;
+      height: 5em;
       display: flex;
       margin: 0 auto;
+      align-items: center;
       justify-content: right;
-      li::before {
-        content: "";
-        width: 0.1em;
-        height: 1.2em;
-        background-color: #DDD;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: 1em auto;
-      }
-      a {
-        font-size: 1.4em;
-        padding: 0.35em 0.7em;
-        white-space: nowrap;
+
+      li {
+
+        &::before {
+          content: "";
+          width: 0.1em;
+          height: 1.2em;
+          background-color: #DDD;
+          position: absolute;
+          top: 0.8em;
+          bottom: 0;
+          margin: 1em auto;
+        }
+
+        &:first-child::before {
+          display: none;
+        }
+
+        a {
+          font-size: 1.4em;
+          padding: 0.35em 0.7em;
+          white-space: nowrap;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }
@@ -128,10 +143,33 @@ header {
       justify-content: center;
       .menu_list--promotion_event {
         display: flex;
-        a {
-          font-size: 1.6em;
-          padding: 0.35em 0.7em;
-          justify-content: center;
+
+        >li {
+          position: relative;
+
+          &::before {
+            content: "";
+            width: 0.1em;
+            height: 1.8em;
+            background-color: #DDD;
+            position: absolute;
+            top: 50%; /* 상하 중앙 정렬 */
+            right: 0;
+            transform: translateY(-50%); /* 수직 중앙 정렬 */
+          }
+
+          &:last-child::before {
+            display: none;
+          }
+
+          a {
+            font-size: 1.6em;
+            padding: 0.35em 0.7em;
+          }
+          &:hover {
+            text-decoration: underline;
+          }
+
         }
       }
     }
@@ -150,6 +188,7 @@ main {
   height: 80%;
   border-top: 0.1em solid #DDD;
   position: relative;
+
   .main-menu {
     width: 70%;
     margin: 0 auto;
@@ -157,18 +196,19 @@ main {
     z-index: 2;
     align-items: center;
     justify-content: center;
+    
     .delivery {
       background-color: #DDD;
       
       .deliver__item--name {
-        // width: 20em;
-        // height: 5em;
         
         button {
           width: 15em;
           height: 3.5em;
+
           .material-icons--lists {
             font-size: 1.2em;
+
             .material-icons.truck {
               position: absolute;
               top: 0.45em;
@@ -178,7 +218,6 @@ main {
               text-align: center;
             }
             .material-icons.arrow_drop_down {
-              // display: flex;
               width: 1em;
               position: absolute;
               top: 0.45em;
@@ -186,43 +225,66 @@ main {
             }
           }
         }
+
+        &:hover + .deliver__item--contents {
+          display: block;
+          height: 8.5em;
+        }
       }
+      
+
+
       .deliver__item--contents {
-        // display: flex;
+        width: 13.25em;
+        height: 0;
         position: absolute;
-        top: 2.25em;
-        left: 8em;
-        width: 7.5em;
-        height: 9em;
+        top: 3.1em;
+        left: 21.3em;
         background-color: #F9F9F9;
         font-size: 1.5em;
-        border-radius: 0.13em;
         text-align: center;
-        transition: height .1s;
-        overflow: hidden;
+        border-radius: 0.13em;
+        transition: height 3s;
+        overflow: hidden; /* 요소의 높이 변화가 적용될 때 비정상적인 컨텐츠 노출을 방지 */
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         display: none;
-        .deliver__contents {
-          a {
+        z-index: 2;
 
+        li.deliver__contents {
+          padding-top: 0.6em;
+
+          a {
+          
+            &:hover {
+              text-decoration: underline #F44336;
+              font-weight: 700;
+              color: #F44336;
+            }
           }
         }
       }
     }
+
+
+
     .menu_list--shopping_cate {
       display: flex;
+
       .shopping_cate__item--name {
+
         a {
           padding: 0 0 0 10em;
           text-align: center;
+
           span {
             font-size: 1.6em;
           }
         }
+
+        // .deliver__item--name:first-child:hover {
+        //   display: block;
+        // }
       }
-    }
-    .deliver__item--name:first-child:hover {
-      display: block;
     }
   }
 

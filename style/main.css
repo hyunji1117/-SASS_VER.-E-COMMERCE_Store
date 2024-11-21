@@ -68,8 +68,10 @@ header {
 }
 header .top_sub_menu .menu_list--user_manage {
   width: 70%;
+  height: 5em;
   display: flex;
   margin: 0 auto;
+  align-items: center;
   justify-content: right;
 }
 header .top_sub_menu .menu_list--user_manage li::before {
@@ -78,14 +80,20 @@ header .top_sub_menu .menu_list--user_manage li::before {
   height: 1.2em;
   background-color: #DDD;
   position: absolute;
-  top: 0;
+  top: 0.8em;
   bottom: 0;
   margin: 1em auto;
 }
-header .top_sub_menu .menu_list--user_manage a {
+header .top_sub_menu .menu_list--user_manage li:first-child::before {
+  display: none;
+}
+header .top_sub_menu .menu_list--user_manage li a {
   font-size: 1.4em;
   padding: 0.35em 0.7em;
   white-space: nowrap;
+}
+header .top_sub_menu .menu_list--user_manage li a:hover {
+  text-decoration: underline;
 }
 header .header__inner {
   width: 70%;
@@ -129,10 +137,28 @@ header .header__inner .sub-menu {
 header .header__inner .sub-menu .menu_list--promotion_event {
   display: flex;
 }
-header .header__inner .sub-menu .menu_list--promotion_event a {
+header .header__inner .sub-menu .menu_list--promotion_event > li {
+  position: relative;
+}
+header .header__inner .sub-menu .menu_list--promotion_event > li::before {
+  content: "";
+  width: 0.1em;
+  height: 1.8em;
+  background-color: #DDD;
+  position: absolute;
+  top: 50%; /* 상하 중앙 정렬 */
+  right: 0;
+  transform: translateY(-50%); /* 수직 중앙 정렬 */
+}
+header .header__inner .sub-menu .menu_list--promotion_event > li:last-child::before {
+  display: none;
+}
+header .header__inner .sub-menu .menu_list--promotion_event > li a {
   font-size: 1.6em;
   padding: 0.35em 0.7em;
-  justify-content: center;
+}
+header .header__inner .sub-menu .menu_list--promotion_event > li:hover {
+  text-decoration: underline;
 }
 header .header__inner .material-icons.more-btn {
   border: none;
@@ -180,20 +206,34 @@ main .main-menu .delivery .deliver__item--name button .material-icons--lists .ma
   top: 0.45em;
   left: 19em;
 }
+main .main-menu .delivery .deliver__item--name:hover + .deliver__item--contents {
+  display: block;
+  height: 8.5em;
+}
 main .main-menu .delivery .deliver__item--contents {
+  width: 13.25em;
+  height: 0;
   position: absolute;
-  top: 2.25em;
-  left: 8em;
-  width: 7.5em;
-  height: 9em;
+  top: 3.1em;
+  left: 21.3em;
   background-color: #F9F9F9;
   font-size: 1.5em;
-  border-radius: 0.13em;
   text-align: center;
-  transition: height 0.1s;
-  overflow: hidden;
+  border-radius: 0.13em;
+  transition: height 3s;
+  overflow: hidden; /* 요소의 높이 변화가 적용될 때 비정상적인 컨텐츠 노출을 방지 */
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   display: none;
+  z-index: 2;
+}
+main .main-menu .delivery .deliver__item--contents li.deliver__contents {
+  padding-top: 0.6em;
+}
+main .main-menu .delivery .deliver__item--contents li.deliver__contents a:hover {
+  -webkit-text-decoration: underline #F44336;
+          text-decoration: underline #F44336;
+  font-weight: 700;
+  color: #F44336;
 }
 main .main-menu .menu_list--shopping_cate {
   display: flex;
@@ -204,9 +244,6 @@ main .main-menu .menu_list--shopping_cate .shopping_cate__item--name a {
 }
 main .main-menu .menu_list--shopping_cate .shopping_cate__item--name a span {
   font-size: 1.6em;
-}
-main .main-menu .deliver__item--name:first-child:hover {
-  display: block;
 }
 main .promotion .swiper .swiper-wrapper {
   width: 1000px;
