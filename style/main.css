@@ -63,11 +63,12 @@ button {
 /* HEADER */
 header {
   width: 100%;
-  height: 10%;
+  height: 20%;
   position: relative;
+  margin-bottom: 3em;
 }
 header .top_sub_menu .menu_list--user_manage {
-  width: 70%;
+  width: 75%;
   height: 5em;
   display: flex;
   margin: 0 auto;
@@ -87,6 +88,9 @@ header .top_sub_menu .menu_list--user_manage li::before {
 header .top_sub_menu .menu_list--user_manage li:first-child::before {
   display: none;
 }
+header .top_sub_menu .menu_list--user_manage li:last-child a {
+  padding-right: 0;
+}
 header .top_sub_menu .menu_list--user_manage li a {
   font-size: 1.4em;
   padding: 0.35em 0.7em;
@@ -96,7 +100,7 @@ header .top_sub_menu .menu_list--user_manage li a:hover {
   text-decoration: underline;
 }
 header .header__inner {
-  width: 70%;
+  width: 75%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -104,17 +108,18 @@ header .header__inner {
 }
 header .header__inner h1 a.logo img {
   width: 18em;
+  margin-left: 5em;
 }
 header .header__inner .search {
   position: absolute;
-  top: 2.5em;
-  left: 30em;
-  height: 4em;
-  display: flex; /* 레이아웃 정렬을 위해 flexbox 사용 */
+  top: 2em;
+  left: 35em;
+  height: 5em;
+  display: flex;
   align-items: center;
 }
 header .header__inner .search input {
-  width: 25.5em;
+  width: 30em;
   height: 100%; /* 부모 요소와 동일한 높이 */
   border: 0.1em solid #F44336;
   box-sizing: border-box;
@@ -139,6 +144,9 @@ header .header__inner .sub-menu .menu_list--promotion_event {
 }
 header .header__inner .sub-menu .menu_list--promotion_event > li {
   position: relative;
+}
+header .header__inner .sub-menu .menu_list--promotion_event > li:last-child a {
+  padding-right: 0;
 }
 header .header__inner .sub-menu .menu_list--promotion_event > li::before {
   content: "";
@@ -175,7 +183,7 @@ main {
   position: relative;
 }
 main .main-menu {
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   z-index: 2;
@@ -187,15 +195,15 @@ main .main-menu .delivery {
 }
 main .main-menu .delivery .deliver__item--name button {
   width: 15em;
-  height: 3.5em;
+  height: 4em;
 }
 main .main-menu .delivery .deliver__item--name button .material-icons--lists {
-  font-size: 1.2em;
+  font-size: 1.35em;
 }
 main .main-menu .delivery .deliver__item--name button .material-icons--lists .material-icons.truck {
   position: absolute;
-  top: 0.45em;
-  left: 15em;
+  top: 0.55em;
+  left: 11.5em;
 }
 main .main-menu .delivery .deliver__item--name button .material-icons--lists h2 {
   text-align: center;
@@ -203,8 +211,8 @@ main .main-menu .delivery .deliver__item--name button .material-icons--lists h2 
 main .main-menu .delivery .deliver__item--name button .material-icons--lists .material-icons.arrow_drop_down {
   width: 1em;
   position: absolute;
-  top: 0.45em;
-  left: 19em;
+  top: 0.55em;
+  left: 16em;
 }
 main .main-menu .delivery .deliver__item--name:hover + .deliver__item--contents {
   display: block;
@@ -239,11 +247,11 @@ main .main-menu .menu_list--shopping_cate {
   display: flex;
 }
 main .main-menu .menu_list--shopping_cate .shopping_cate__item--name a {
-  padding: 0 0 0 10em;
+  padding: 0 0 0 12.5em;
   text-align: center;
 }
 main .main-menu .menu_list--shopping_cate .shopping_cate__item--name a span {
-  font-size: 1.6em;
+  font-size: 1.8em;
 }
 main .promotion .swiper .swiper-wrapper {
   width: 1000px;
@@ -256,26 +264,21 @@ main .promotion .swiper .swiper-wrapper .swiper-slide a img {
      object-fit: cover;
 }
 /* PRODUCTS */
+h3 {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 3em;
+  padding-left: 1.5em;
+  font-size: 2.5em;
+}
+
 .product_unit {
   width: 70%;
   display: grid;
   margin: 0 auto;
-  margin-top: 10em;
-  gap: 10em 5em; /* 요소 간격 */
+  gap: 8em 3.5em; /* 요소 간격 */
   grid-template-columns: repeat(2, 1fr); /* 2열 배치 */
   justify-content: space-evenly; /* 좌우 정렬 */
-}
-.product_unit h2 {
-  color: #16181B;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 28px;
-  /* text-align: center; */
-  margin: 50px 0 50px 0;
-  width: 1040px;
-  position: absolute;
-  top: 15px;
-  left: 230px;
 }
 .product_unit .product-wrapper {
   box-sizing: border-box; /* 패딩 포함 */
@@ -288,11 +291,18 @@ main .promotion .swiper .swiper-wrapper .swiper-slide a img {
 }
 .product_unit .product-wrapper .products_unit {
   display: grid;
+  position: relative;
+  top: -2em;
+  background-color: #fff;
   grid-template-columns: repeat(2, 1fr); /* 2열 배치 */
-  gap: 2.5em; /* 세로 간격 10px, 가로 간격 20px */
+  gap: 1.5em;
 }
 .product_unit .product-wrapper .products_unit .product_img_wrap {
   text-align: center;
+  margin-top: 1.5em;
+}
+.product_unit .product-wrapper .products_unit .product_img_wrap:first-child {
+  margin-left: 1.5em;
 }
 .product_unit .product-wrapper .products_unit .product_img_wrap .brand--name > a {
   color: #777;

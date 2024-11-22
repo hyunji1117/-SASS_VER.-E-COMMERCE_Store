@@ -60,11 +60,14 @@ button {
 /* HEADER */
 header {
   width: 100%;
-  height: 10%;
+  height: 20%;
   position: relative;
+  margin-bottom: 3em;
+
   .top_sub_menu {
+
     .menu_list--user_manage {
-      width: 70%;
+      width: 75%;
       height: 5em;
       display: flex;
       margin: 0 auto;
@@ -88,6 +91,10 @@ header {
           display: none;
         }
 
+        &:last-child a {
+          padding-right: 0;
+        }
+
         a {
           font-size: 1.4em;
           padding: 0.35em 0.7em;
@@ -101,7 +108,7 @@ header {
     }
   }
   .header__inner {
-    width: 70%;
+    width: 75%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -110,18 +117,19 @@ header {
       a.logo {
         img {
           width: 18em;
+          margin-left: 5em;
         }
       }
     }
     .search {
       position: absolute;
-      top: 2.5em;
-      left: 30em;
-      height: 4em;
-      display: flex; /* 레이아웃 정렬을 위해 flexbox 사용 */
+      top: 2em;
+      left: 35em;
+      height: 5em;
+      display: flex;
       align-items: center;
       input {
-        width: 25.5em;
+        width: 30em;
         height: 100%; /* 부모 요소와 동일한 높이 */
         border: 0.1em solid #F44336;
         box-sizing: border-box;
@@ -146,6 +154,10 @@ header {
 
         >li {
           position: relative;
+
+          &:last-child a {
+            padding-right: 0;
+          }
 
           &::before {
             content: "";
@@ -190,7 +202,7 @@ main {
   position: relative;
 
   .main-menu {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     display: flex;
     z-index: 2;
@@ -204,15 +216,15 @@ main {
         
         button {
           width: 15em;
-          height: 3.5em;
+          height: 4em;
 
           .material-icons--lists {
-            font-size: 1.2em;
+            font-size: 1.35em;
 
             .material-icons.truck {
               position: absolute;
-              top: 0.45em;
-              left: 15em;
+              top: 0.55em;
+              left: 11.5em;
             }
             h2 {
               text-align: center;
@@ -220,8 +232,8 @@ main {
             .material-icons.arrow_drop_down {
               width: 1em;
               position: absolute;
-              top: 0.45em;
-              left: 19em;
+              top: 0.55em;
+              left: 16em;
             }
           }
         }
@@ -273,11 +285,11 @@ main {
       .shopping_cate__item--name {
 
         a {
-          padding: 0 0 0 10em;
+          padding: 0 0 0 12.5em;
           text-align: center;
 
           span {
-            font-size: 1.6em;
+            font-size: 1.8em;
           }
         }
 
@@ -327,27 +339,22 @@ main {
 }
 
 /* PRODUCTS */
+h3 {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 3em;
+  padding-left: 1.5em;
+  font-size: 2.5em;
+}
+
 .product_unit {
   width: 70%;
   display: grid;
   margin: 0 auto;
-  margin-top: 10em;
-  gap: 10em 5em; /* 요소 간격 */
+  gap: 8em 3.5em; /* 요소 간격 */
   grid-template-columns: repeat(2, 1fr); /* 2열 배치 */
   justify-content: space-evenly; /* 좌우 정렬 */
 
-  h2 {
-    color: #16181B;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 28px;
-    /* text-align: center; */
-    margin: 50px 0 50px 0;
-    width: 1040px;
-    position: absolute;
-    top: 15px;
-    left: 230px;
-  }
   .product-wrapper {
     box-sizing: border-box; /* 패딩 포함 */
     display: grid;
@@ -356,20 +363,26 @@ main {
 
     .brand_img {
       max-width: 100%; /* 필요에 따라 이미지 크기 조정 */
+      
     }
     .products_unit {
-      // display: flex;
       display: grid;
+      position: relative;
+      top: -2em;
+      background-color: #fff;
       grid-template-columns: repeat(2, 1fr); /* 2열 배치 */
-      gap: 2.5em; /* 세로 간격 10px, 가로 간격 20px */
+      gap: 1.5em;
 
-      
       .product_img_wrap {
         text-align: center;
-        
+        margin-top: 1.5em;
 
+        &:first-child {
+          margin-left: 1.5em;
+        }
+      
         .product_img {
-          
+
           a {
 
             img {
