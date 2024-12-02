@@ -97,3 +97,44 @@ deliverItemContents.addEventListener('mouseleave', () => {
     deliverItemContents.style.display = 'none';
   }, LEAVE_HOVER);
 });
+
+// 헤더 햄버거 버튼 기능
+document.addEventListener('DOMContentLoaded', () => {
+  const moreBtn = document.querySelector('.material-icons.more-btn'); // 햄버거 버튼
+  const menuList = document.querySelector('.top_sub_menu ul.menu_list--user_manage'); // 메뉴 리스트
+
+  // 초기 상태 설정: 첫 화면에서 메뉴 숨기기
+  function setInitialMenuState() {
+    if (window.innerWidth > 1024) {
+      menuList.style.display = 'flex'; // 1024px 이상에서는 메뉴 항상 보이기
+    } else {
+      menuList.style.display = 'none'; // 1024px 이하에서는 숨기기
+    }
+  }
+
+  // 초기 상태 실행
+  setInitialMenuState();
+
+  // 메뉴 버튼 클릭 이벤트
+  moreBtn.addEventListener('click', (event) => {
+    if (window.innerWidth <= 1024) { // 1024px 이하일 때만 동작
+      event.stopPropagation(); // 이벤트 버블링 방지
+      const isVisible = menuList.style.display === 'flex'; // 현재 메뉴가 보이는지 확인
+      menuList.style.display = isVisible ? 'none' : 'flex'; // 보이거나 숨기기
+    }
+  });
+
+  // ul.menu_list--user_manage 외부 클릭 시 메뉴 닫기
+  document.addEventListener('click', (event) => {
+    if (window.innerWidth <= 1024) { // 1024px 이하일 때만 동작
+      if (!menuList.contains(event.target) && !moreBtn.contains(event.target)) {
+        menuList.style.display = 'none'; // 메뉴 숨기기
+      }
+    }
+  });
+
+  // 화면 크기 변화 시 초기화
+  window.addEventListener('resize', () => {
+    setInitialMenuState(); // 화면 크기 변경 시 메뉴 상태 초기화
+  });
+});
