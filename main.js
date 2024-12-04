@@ -100,7 +100,7 @@ deliverItemContents.addEventListener('mouseleave', () => {
 
 // 헤더 햄버거 버튼 기능
 document.addEventListener('DOMContentLoaded', () => {
-  const moreBtn = document.querySelector('.material-icons.more-btn'); // 햄버거 버튼
+  const moreBtn = document.querySelector('.o-B.o-BBurger'); // 햄버거 버튼  .material-icons.more-btn 
   const menuList = document.querySelector('.top_sub_menu ul.menu_list--user_manage'); // 메뉴 리스트
 
   // 초기 상태 설정: 첫 화면에서 메뉴 숨기기

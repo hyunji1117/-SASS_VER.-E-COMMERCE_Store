@@ -29,6 +29,75 @@
     align-items: center;
     gap: 1rem;
   }
+  .more-btn_B {
+    position: relative;
+    display: block;
+    color: #16181B;
+    height: 0.1em; /* 두께를 얇게 조정 */
+    margin-bottom: 0.2em;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .more-btn_B:last-child {
+    margin-bottom: 0;
+  }
+  .more-btn_B:after,
+.more-btn_B:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: currentColor;
+    width: 0.8em;
+    height: 0.08em;
+    transition: all 0.7s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  .more-btn_B:after {
+    opacity: 0;
+    transform: translateY(1em);
+  }
+  .more-btn {
+    font-size: 5em;
+    line-height: 7.5em;
+    letter-spacing: 0;
+    display: block;
+    width: 1.2em;
+    position: absolute;
+    top: 8%;
+    right: 10rem;
+    overflow: hidden;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+}
+@media (max-width: 1024px) and (max-width: 768px) {
+  .more-btn {
+    font-size: 4.5em;
+    line-height: 6.75em;
+  }
+}
+@media (max-width: 1024px) and (max-width: 480px) {
+  .more-btn {
+    font-size: 4em;
+    line-height: 6em;
+  }
+}
+@media (max-width: 1024px) {
+  .more-btn:hover .more-btn_B:before {
+    opacity: 0;
+    transform: translateY(-1em); /* 위로 이동 */
+    transition: transform 0.7s cubic-bezier(0.86, 0, 0.07, 1), opacity 0.7s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+}
+@media (max-width: 1024px) {
+  .more-btn:hover .more-btn_B:after {
+    opacity: 1;
+    transform: translateY(0); /* 원래 위치 */
+    transition: transform 0.7s cubic-bezier(0.86, 0, 0.07, 1), opacity 0.7s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+}
+@media (max-width: 1024px) {
   .top_sub_menu {
     display: flex;
     align-items: center;
@@ -90,34 +159,38 @@
     text-decoration: none !important; /* hover 시 밑줄 제거 */
   }
 }
-@media (max-width: 1024px) {
-  .top_sub_menu .material-icons.more-btn {
-    font-size: 6em;
-    line-height: 9em;
-    letter-spacing: 0;
-    width: 1.5em;
-    height: 1.5em;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    position: absolute;
-    top: 3rem;
-    right: 10rem;
-  }
-}
-@media (max-width: 1024px) and (max-width: 768px) {
-  .top_sub_menu .material-icons.more-btn {
-    font-size: 5.4em;
-    line-height: 8.1em;
-  }
-}
-@media (max-width: 1024px) and (max-width: 480px) {
-  .top_sub_menu .material-icons.more-btn {
-    font-size: 4.8em;
-    line-height: 7.2em;
-  }
-}
 /* 태블릿 세로: 768px */
+@media (max-width: 768px) {
+  .main-menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .product_unit {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer_menu {
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .header__inner {
+    flex-direction: column;
+  }
+  .header__inner .search {
+    width: 100%;
+    margin-top: 1em;
+  }
+  .main-menu {
+    align-items: stretch;
+  }
+  .product_unit {
+    grid-template-columns: 1fr;
+  }
+  .footer_menu {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 /* 아이폰 모바일: 375px */
 /* 안드로이드 모바일: 360px */
 /* 기본 설정 */
@@ -151,6 +224,10 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+}
+
+a, button, input {
+  touch-action: manipulation;
 }
 
 /* Header */
@@ -196,8 +273,26 @@ header .top_sub_menu ul.menu_list--user_manage li a:hover {
   text-underline-offset: 0.5em;
   transition: 300ms;
 }
+header .o-B more-btn {
+  display: none;
+}
+header .sr-only, header .u-visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+  color: #757575;
+}
 header .header__inner {
-  display: flex;
+  position: relative; /* 기준 위치를 설정 */
+  display: flex; /* 내부 요소를 정렬하기 위해 플렉스 박스를 사용 */
+  justify-content: space-between; /* 요소 간의 간격을 균등하게 배치 */
+  align-items: center; /* 세로 방향 정렬 */
+  padding: 0 1rem; /* 좌우 여백 설정 */
 }
 header .header__inner h1 {
   flex: 1;
@@ -395,49 +490,4 @@ footer .footer_end .QR_info {
 }
 footer .footer_end .QR_info img {
   width: 5em;
-}
-
-/* 반응형 미디어 쿼리 */
-@media (max-width: 1024px) {
-  .header__inner {
-    flex-wrap: wrap;
-  }
-  .product_unit {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .footer_menu {
-    flex-wrap: wrap;
-    gap: 1em;
-  }
-}
-@media (max-width: 768px) {
-  .main-menu {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .product_unit {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .footer_menu {
-    justify-content: center;
-  }
-}
-@media (max-width: 480px) {
-  .header__inner {
-    flex-direction: column;
-  }
-  .header__inner .search {
-    width: 100%;
-    margin-top: 1em;
-  }
-  .main-menu {
-    align-items: stretch;
-  }
-  .product_unit {
-    grid-template-columns: 1fr;
-  }
-  .footer_menu {
-    flex-direction: column;
-    align-items: center;
-  }
 }/*# sourceMappingURL=main.css.map */

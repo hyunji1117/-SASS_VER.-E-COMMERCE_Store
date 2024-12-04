@@ -42,6 +42,19 @@ $base-letter-spacing: 0;
   }
 }
 
+// .header__inner {
+//   flex-wrap: wrap;
+// }
+
+// .product_unit {
+//   grid-template-columns: repeat(3, 1fr);
+// }
+
+// .footer_menu {
+//   flex-wrap: wrap;
+//   gap: 1em;
+// }
+
 /* 태블릿 가로: 1024px */
 @media (max-width: 1024px) {
   header {
@@ -55,6 +68,62 @@ $base-letter-spacing: 0;
     flex-direction: column; // 내부 요소를 세로로 배치
     align-items: center; // 가로 중앙 정렬
     gap: 1rem; // 요소 간 간격
+  }
+
+  .more-btn_B {
+    position: relative;
+    display: block;
+    color: #16181B;
+    height: 0.1em; /* 두께를 얇게 조정 */
+    margin-bottom: 0.2em;
+    transition: transform .5s cubic-bezier(.23,1,.32,1);
+    transition: transform .5s cubic-bezier(.23,1,.32,1);
+  }
+
+  .more-btn_B:last-child {
+    margin-bottom: 0;
+  }
+
+  .more-btn_B:after,
+  .more-btn_B:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: currentColor;
+      width: .8em;
+      height: .08em;
+      transition: all .7s cubic-bezier(.86,0,.07,1);
+  }
+
+  .more-btn_B:after {
+      opacity: 0;
+      transform: translateY(1em);
+  }
+
+  .more-btn {
+    @include responsive-typography(5em);
+    display: block;
+    width: 1.2em;
+    position: absolute;
+    top: 8%;
+    right: 10rem;
+    overflow: hidden;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .more-btn:hover .more-btn_B:before {
+    opacity: 0;
+    transform: translateY(-1em); /* 위로 이동 */
+    transition: transform .7s cubic-bezier(.86,0,.07,1), opacity .7s cubic-bezier(.86,0,.07,1);
+  }
+
+  .more-btn:hover .more-btn_B:after {
+      opacity: 1;
+      transform: translateY(0); /* 원래 위치 */
+      transition: transform .7s cubic-bezier(.86,0,.07,1), opacity .7s cubic-bezier(.86,0,.07,1);
   }
 
   .top_sub_menu {
@@ -104,24 +173,59 @@ $base-letter-spacing: 0;
       }
     }
 
-    .material-icons.more-btn {
-      @include responsive-typography(6em);
-      width: 1.5em;
-      height: 1.5em;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      position: absolute;
-      top: 3rem;
-      right: 10rem;
-    }
+    // .material-icons.more-btn {
+    //   @include responsive-typography(6em);
+    //   width: 1.5em;
+    //   height: 1.5em;
+    //   justify-content: center;
+    //   align-items: center;
+    //   display: flex;
+    //   position: absolute;
+    //   top: 3rem;
+    //   right: 10rem;
+    // }
   }
 }
 
 
 /* 태블릿 세로: 768px */
 @media (max-width: 768px) {
-  
+  .main-menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product_unit {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer_menu {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__inner {
+    flex-direction: column;
+
+    .search {
+      width: 100%;
+      margin-top: 1em;
+    }
+  }
+
+  .main-menu {
+    align-items: stretch;
+  }
+
+  .product_unit {
+    grid-template-columns: 1fr;
+  }
+
+  .footer_menu {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* 아이폰 모바일: 375px */
@@ -184,6 +288,10 @@ button {
   cursor: pointer;
 }
 
+a,button,input {
+  touch-action: manipulation
+}
+
 /* Header */
 header {
   width: 70%;
@@ -218,8 +326,29 @@ header {
     }
   }
 
+  .o-B more-btn {
+    display: none;
+  }
+
+  .sr-only,.u-visuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+    color: #757575
+  }
+
   .header__inner {
-    display: flex;
+    // display: flex;
+    position: relative; /* 기준 위치를 설정 */
+    display: flex; /* 내부 요소를 정렬하기 위해 플렉스 박스를 사용 */
+    justify-content: space-between; /* 요소 간의 간격을 균등하게 배치 */
+    align-items: center; /* 세로 방향 정렬 */
+    padding: 0 1rem; /* 좌우 여백 설정 */
 
     h1 {
       flex: 1;
@@ -256,7 +385,7 @@ header {
         position: absolute;
         right: 1em;
         cursor: pointer;
-      }
+      }      
     }
 
    .sub-menu {
@@ -447,60 +576,5 @@ footer {
         width: 5em;
       }
     }
-  }
-}
-
-/* 반응형 미디어 쿼리 */
-@media (max-width: 1024px) {
-  .header__inner {
-    flex-wrap: wrap;
-  }
-
-  .product_unit {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .footer_menu {
-    flex-wrap: wrap;
-    gap: 1em;
-  }
-}
-
-@media (max-width: 768px) {
-  .main-menu {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .product_unit {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer_menu {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .header__inner {
-    flex-direction: column;
-
-    .search {
-      width: 100%;
-      margin-top: 1em;
-    }
-  }
-
-  .main-menu {
-    align-items: stretch;
-  }
-
-  .product_unit {
-    grid-template-columns: 1fr;
-  }
-
-  .footer_menu {
-    flex-direction: column;
-    align-items: center;
   }
 }
