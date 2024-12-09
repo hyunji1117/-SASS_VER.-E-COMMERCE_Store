@@ -1,6 +1,0 @@
-/* utility.css */
-@layer components {
-  .skeleton {
-    @apply animate-shimmer bg-gradient-custom bg-custom;
-  }
-}
